@@ -1,0 +1,18 @@
+// Get to North West corner
+0:
+while North Empty:
+    go north
+
+1:
+while West Empty:
+    go west
+
+2:
+while South Empty:
+    go south
+if East Empty:
+    go east
+while North Empty:
+    go north
+Repeat 2
+
