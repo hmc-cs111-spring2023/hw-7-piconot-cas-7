@@ -55,6 +55,12 @@ class Picotext(val mazeFilename: String) extends App {
                 case List(West, South) => action(State(x.toString), Surroundings(Anything, Anything, Open, Open))
                 case List(East, South) => action(State(x.toString), Surroundings(Anything, Open, Anything, Open))
                 case List(North, East, South) => action(State(x.toString), Surroundings(Open, Open, Anything, Open))
+        def empty(n: String) =
+            n match
+                case "n wall e" => action(State(x.toString), Surroundings(Open, Blocked, Anything, Anything))
+                case "s wall w" => action(State(x.toString), Surroundings(Anything, Blocked, Anything, Open))
+                case "e wall s" => action(State(x.toString), Surroundings(Anything, Open, Anything, Blocked))
+                case "w wall n" => action(State(x.toString), Surroundings(Blocked, Anything, Open, Anything))
         def wall(n: MoveDirection) =
             n match 
                 case North => action(State(x.toString), Surroundings(Blocked, Anything, Anything, Anything))
